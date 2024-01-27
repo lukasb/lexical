@@ -25,6 +25,7 @@ import {
 import {useEffect} from 'react';
 
 function indentOverTab(selection: RangeSelection): boolean {
+  return true;
   // const handled = new Set();
   const nodes = selection.getNodes();
   const canIndentBlockNodes = $filter(nodes, (node) => {
