@@ -18,7 +18,7 @@ import {
   $normalizeSelection__EXPERIMENTAL,
   COMMAND_PRIORITY_EDITOR,
   INDENT_CONTENT_COMMAND,
-  INSERT_TAB_COMMAND,
+  //INSERT_TAB_COMMAND,
   KEY_TAB_COMMAND,
   OUTDENT_CONTENT_COMMAND,
 } from 'lexical';
@@ -72,7 +72,9 @@ export function registerTabIndentation(editor: LexicalEditor) {
         ? event.shiftKey
           ? OUTDENT_CONTENT_COMMAND
           : INDENT_CONTENT_COMMAND
-        : INSERT_TAB_COMMAND;
+        : event_shiftkey
+        ? OUTDENT_CONTENT_COMMAND
+        : INDENT_CONTENT_COMMAND;
       return editor.dispatchCommand(command, undefined);
     },
     COMMAND_PRIORITY_EDITOR,
